@@ -1,0 +1,39 @@
+﻿<div data-ng-controller="documentdetails as vm">
+	<section class="mainbar">
+		<section class="matter">
+			<div class="row">
+				<div class="col-md-12">
+					
+						<div class="widget worange">
+							<div data-cc-widget-header title="Document Details" allow-collapse="true"></div>
+							<div class="widget-content">
+											<!--Files Multi-day-->
+											<div class="ftype-adj">
+												<label><h5>Document Info</h5></label>
+												<hr />
+												<div class="panel-body filele-type-auto filetype-txtsize">
+													<div ng-repeat="val in parameterDetails.multiDay.fileTypes">{{val.name}}</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="clearfix"></div>
+
+					</div>
+				</div>
+
+			<div class="widget worange">
+				<div data-cc-widget-header title="Delivery Type" allow-collapse="true"></div>
+				<div class="row well-sm widget-content">
+					<span style="margin-left:25px" ng-show="parameterDetails.deliveryType.sftp">SFTP</span>
+					<span ng-show="parameterDetails.deliveryType.email">EMAIL</span>
+				</div>
+			</div>
+
+
+
+
+		</section>
+	</section>
+</div>

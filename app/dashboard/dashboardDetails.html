@@ -1,0 +1,125 @@
+﻿<div data-ng-controller="dashboarddetails as vm">
+	<section class="mainbar">
+		<section class="matter">
+		<div class="row">
+			<div class="col-md-12">
+					
+				<div class="widget worange">
+							<div data-cc-widget-header title="Activity Details" allow-collapse="true"></div>
+							<div class="widget-content">
+					<!--------MultiDay---------->
+								<div class="row">
+					<div class="col-md-6">
+										<div class="details_day-brdr">
+											<h4><strong>Multi-Day</strong></h4>
+						<div class="input-prepend input-group" style="margin-top: 5px; margin-bottom: 20px">
+							<span class="add-on input-group-addon"><i class="fa fa-calendar"></i></span>
+							<input type="text" value="{{parameterDetails.multiDay.dateFrom}}-{{parameterDetails.multiDay.dateTo}}" class="form-control" id="multiDay">
+						</div>
+
+						<!--Files Multi-day-->
+											<div class="ftype-adj">
+												<label><h5>FileTypes</h5></label>
+												<hr />
+												<div class="panel-body filele-type-auto filetype-txtsize">
+                            <div ng-repeat="val in parameterDetails.multiDay.fileTypes">{{val.name}}</div>
+						</div>
+					</div>
+										</div>
+									</div>
+
+					<!---Single Day------>
+					<div class="col-md-6">
+										<div class="details_day-brdr">
+											<h4><strong>Single Day</strong></h4>
+						<div class="input-prepend input-group" style="margin-top: 5px; margin-bottom: 20px">
+							<span class="add-on input-group-addon"><i class="fa fa-calendar"></i></span>
+							<input type="text" value="{{parameterDetails.singleDay.dateFrom}}" class="form-control" id="singleDay">
+						</div>
+
+						<!--Files SD-SingleDay-->
+											<div class="ftype-adj">
+												<label><h5>FileTypes</h5></label>
+												<hr />
+												<div class="panel-body filele-type-auto filetype-txtsize">
+							<div ng-repeat="val in parameterDetails.singleDay.fileTypes">{{val.name}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+									<div class="clearfix"></div>
+									<!--<hr>-->
+		<!-- Portfolios & Excluded Securities -->
+
+									<div class="row">
+											<div class="col-md-6">
+												<div class="inner-offset-cont font-uppercase">
+													<span><strong>Portfolios</strong></span>
+													<hr />
+													<div class="fix-height-1">
+				<div ng-repeat="val in parameterDetails.portfolios">
+					<!--<span class="glyphicon glyphicon-check">testing</span>-->
+															<span style="margin-left:10px" class="fa fa-check-circle filetype-txtsize">&nbsp;{{val.name}}</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="inner-offset-cont font-uppercase">
+													<span><strong>Excluded Securities</strong></span>
+													<hr />
+													<div class="fix-height-1">
+														<div ng-repeat="val in parameterDetails.excludedSecurities">
+															<span style="margin-left:22px" class="fa fa-check-circle filetype-txtsize">&nbsp; {{val.name}}</span>
+														</div>
+													</div>
+				</div>
+			</div>
+									
+			</div>
+
+								
+
+		</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="widget worange">
+				<div data-cc-widget-header title="Delivery Type" allow-collapse="true"></div>
+				<div class="row well-sm widget-content">
+					<span style="margin-left:25px" ng-show="parameterDetails.deliveryType.sftp">SFTP</span>
+			<span ng-show="parameterDetails.deliveryType.email">EMAIL</span> 
+		</div>
+			</div>
+
+
+			<div class="widget worange">
+				<div data-cc-widget-header title="File Types" allow-collapse="true"></div>
+				<div class="row widget-content">
+        <!-- File details -->
+					<div class="container">
+						<div class="col-md-12">
+							<div style="display:block; height:auto; overflow:hidden; margin-bottom:5px; vertical-align:top; ">
+								<h4 style="float:left;display:block;">  </h4><span class="btn btn-primary pull-right" style=";" ng-click="downloadFiles()">Download</span>
+							</div>
+				<div ui-grid="fileDetails_Grid" ui-grid-selection></div>
+
+			</div>
+						<div class="col-md-12">
+							<h4>File Activity</h4>
+							<div ui-grid="fileActivity_Grid" ui-grid-selection></div>
+						</div>
+		</div>
+				<!-- Activity details -->
+					<!--<div class="well-sm">
+						
+					</div>-->
+		</div>
+</div>
+
+		</section>
+	</section>
+</div>

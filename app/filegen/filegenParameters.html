@@ -1,0 +1,121 @@
+		
+	<div class="row ">
+		<div class="col-md-12">
+			<div class="widget wred">
+				<div class="padding-none-inner" ng-show="inputModel.validation.isInvalid">
+					<div data-cc-widget-header title="Please select following input:" allow-collapse="true" ></div>
+					<div class="widget-content">
+						<div ng-repeat="val in inputModel.validation.invalidMessage">
+							<ul>
+								<p style="color:red;" ><li>{{val}}</li></p>
+							</ul>
+			</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+			<!-- Date & FileTypes Section-->
+			<div class="row">
+				<div class="col-md-6">
+					<div class="widget worange">
+					<div data-cc-widget-header title="Select Multi-Day & File Types*" allow-collapse="true"></div>
+					<div class="widget-content">
+						<!-- Multi Day -->
+
+						<div class="form-group ">
+								<label for="filegenForm.multiDay">Multi-Day</label>
+								<div class="input-prepend input-group">
+									<span class="add-on input-group-addon"><i class="fa fa-calendar"></i></span>
+									<input date-range-picker class="form-control date-picker" type="text" id="filegenForm.multiDay" name="multiDay" ng-model="inputModel.multiDay" >
+								</div>
+							</div>
+
+							<!-- FileType multiDay -->
+						<div class="panel-body filele-type-auto">
+							<div class="checkbox" ng-repeat="val in inputModel.fileTypes.multiDay">
+								<label>
+									<input type="checkbox" name="ftMultiDay" ng-model="val.checkVal" ng-change="resetSingleDay(val)" /> <span style="padding-left:10px">{{val.name}} </span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				<div class="col-md-6">
+					<div class="widget worange">
+					<div data-cc-widget-header title="Select Single Day & File Types" allow-collapse="true">	</div>
+					<div class="row widget-content">
+						<div class="col-md-12">
+						<!-- Single Day -->
+							<div class="form-group">
+								<label for="filegenForm.singleDay">Single Day</label>
+								<div class="input-prepend input-group">
+									<span class="add-on input-group-addon"><i class="fa fa-calendar"></i></span>
+									<input date-range-picker class="form-control date-picker" type="text" id="filegenForm.singleDay" name="singleDay" ng-model="inputModel.singleDay" options="singleDayOpts">
+								</div>
+							</div>
+							<!-- FileType singleDay -->
+							<div class="panel-body filele-type-auto">
+							<div class="checkbox" ng-repeat="val in inputModel.fileTypes.singleDay">
+								<label>
+										<input type="checkbox" ng-model="val.checkVal" name="ftSingleDay" ng-change="resetMultiDay(val)" /> <span style="padding-left:10px">{{val.name}}</span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+			</div>
+
+			<!-- Portfolios Section -->
+		<div class="row row-offset-disable">
+		<div class="widget worange">
+			<div data-cc-widget-header title="Portfolios & Security Selection*" allow-collapse="true"></div>
+			<div class="row widget-content">
+				<div class="col-md-6">
+					<!-- Select Portfolios -->
+					<button type="button" class="btn btn-primary" ng-click="addSelected()">&nbsp;&nbsp;Add&nbsp;&nbsp;</button>
+					<span class="glyphicon glyphicon-search pull-right">
+							<input type="text" placeholder="Search" ng-model='inputModel.portfolioFilterValue' ng-change="portfolioFilter()" />
+						</span>
+					<div ui-grid="portfolioLkup_Grid" ui-grid-selection></div>
+				</div>
+
+				<!-- Selected Portfolios -->
+				<div class="col-md-6">
+					<button type="button" class="btn btn-primary" ng-click="removeSelected()">Remove</button>
+					<div ui-grid="portfolioSelected_Grid" ui-grid-selection class="grid"></div>
+				</div>
+				
+				<br/>
+				<!-- Select securities -->
+				<div class="col-md-12">
+					<label class="labl-fp">Select Securities To Be Excluded</label>
+					<div ui-grid="SecuritiesExclusion_Grid" ui-grid-selection></div>
+				</div>
+			</div>
+		</div>
+			</div>
+			<!-- Delivery Options Section -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="widget worange">
+						<div data-cc-widget-header title="Delivery Options*" allow-collapse="true"></div>
+						<div class="row widget-content" >
+							<div class="col-md-2 " ng-repeat="val in inputModel.deliveryTypes">
+								<input type="checkbox" name="deliveryOption" ng-model="val.checkVal" /> <label>{{val.name}}</label>
+							</div>
+						</div>
+				</div>
+			</div>
+			</div>
+
+			<!-- Review -->
+			<div class="row">
+				<div class="col-md-3 col-md-offset-9">
+					<button type="button" class="btn btn-info pull-right" ng-click="validateForm()"> Review > </button>
+				</div>
+			</div>
+

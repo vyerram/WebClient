@@ -1,0 +1,98 @@
+﻿
+
+<div class="row well-sm">
+
+	<div class="widget worange">
+		<div data-cc-widget-header title="Verify Date & FileTypes" allow-collapse="true"></div>
+		<!--------MultiDay---------->
+		<div class="row widget-content review-form">
+			<div class="col-md-6">
+				<div class="details_day-brdr">
+					<h4>Multi-Day</h4>
+					<div class="input-prepend input-group" style="margin-top: 5px; margin-bottom: 20px">
+						<span class="add-on input-group-addon"><i class="fa fa-calendar"></i></span>
+						<input type="text" value="{{inputModel.multiDay.startDate | date:'MM/dd/yyyy'}} -TO- {{inputModel.multiDay.endDate | date:'MM/dd/yyyy'}}" class="form-control" id="multiDay" readonly>
+					</div>
+
+					<!--Files Multi-day-->
+					<div>
+						<span class="pull-left" style="font-weight:bold;">FileTypes</span>
+						<br />
+						<div ng-repeat="val in inputModel.fileTypes.multiDay | filter:checkValFilter"><span class="fa  fa-check-circle">&nbsp; {{val.name}}</span></div>
+					</div>
+				</div>
+
+			</div>
+			<!---Single Day------>
+			<div class="col-md-6">
+				<div class="details_day-brdr">
+					<h4>Single Day</h4>
+					<div class="input-prepend input-group" style="margin-top: 5px; margin-bottom: 20px">
+						<span class="add-on input-group-addon"><i class="fa fa-calendar"></i></span>
+						<input type="text" value="{{inputModel.singleDay.startDate | date:'MM/dd/yyyy'}}" class="form-control" id="singleDay" readonly>
+					</div>
+
+					<!--Files SD-SingleDay-->
+					<div>
+						<span class="pull-left" style="font-weight:bold;">FileTypes</span>
+						<br />
+						<div ng-repeat="val in inputModel.fileTypes.singleDay | filter:checkValFilter"><span class="fa  fa-check-circle">&nbsp; {{val.name}}</span></div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<hr><br />
+
+			<!---Portfolios & Excluded Securities-->
+			<div class="row well-sm">
+				<div class="col-md-6">
+					<span class="pull-left" style="font-weight:bold;">Portfolios</span>
+					<br />
+					<div ui-grid="portfolioSelected_Grid"></div>
+				</div>
+				<div class="col-md-6">
+					<span class="pull-left" style="font-weight:bold;">Excluded Securities</span>
+					<br />
+					<div ui-grid="SecuritiesExclusion_Rev_Grid"></div>
+					<!--<div ui-grid="SecuritiesExclusion_Grid" ui-grid-selection></div>-->
+				</div>
+				<div class="row">
+					<br />
+					<span class="pull-left" style="font-weight: bold; padding-left: 30px">Delivery Type</span>
+					<br/>
+				</div>
+
+				<div class="row well-sm" style="padding-left:30px">
+
+					<!--<span style="padding-left:5px" ng-show="inputModel.sftp">
+						&nbsp;<span class="fa  fa-check-circle">&nbsp; SFTP</span>&nbsp;&nbsp;
+						<span class="fa  fa-check-circle" ng-show="inputModel.email">EMAIL</span>-->
+			
+						<div class="col-md-2 " ng-repeat="val in inputModel.deliveryTypes | filter:deliveryValFilter">
+							<span class="fa  fa-check-circle">&nbsp; {{val.name}}</span>
+						</div>
+					</div>
+
+				<!------------Review----------->
+				<!--<div class="row">
+					<div class="col-md-12  col-md-offset-4">
+						<button type="button" class="btn btn-info" style="padding-left:5px" ng-click="filegenParamClick()">< Back</button>
+						<button type="button" class="btn btn-info" style="padding-left:5px" ng-click="filegenSummaryClick()">Confirm ></button>
+					</div>
+				</div>-->
+				<br />
+				<div class="row well-sm">
+					<div class="col-md-1"></div>
+					<div class="col-md-2">
+						<button type="button" class="btn btn-lg btn-primary pull-left" ng-click="filegenParamClick()">Back</button>
+					</div>
+					<div class="col-md-8">
+						<button type="button" class="btn btn-lg btn-primary pull-right " ng-click="filegenSummaryClick()">Confirm</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+

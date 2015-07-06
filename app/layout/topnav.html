@@ -1,0 +1,38 @@
+﻿
+<nav class="navbar navbar-fixed-top navbar-inverse" data-ng-controller="topnav as nav">
+  <div class="navbar-header">
+    <a href="/" class="navbar-brand"><span class="brand-title">FIPA</span></a>
+    <a class="btn navbar-btn navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </a>
+  </div>
+  <div class="navbar-collapse collapse">
+    <div class="pull-right navbar-logo">
+      <ul class="nav navbar-nav pull-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <i>Welcome Damian</i><i class="fa fa-user fa-fw"> </i>  <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-user">
+            <li>
+              <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            </li>
+            <li>
+              <a href="#" ng-click="nav.refresh()"><i class="fa fa-refresh fa-fw"></i> Refresh</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            </li>
+          </ul>
+          <!-- /.dropdown-user -->
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
